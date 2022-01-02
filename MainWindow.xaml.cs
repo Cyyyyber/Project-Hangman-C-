@@ -63,8 +63,16 @@ namespace hangman_project
             aantalLevens.Text = $"{levens}";
         }
 
-      
-   
+
+        private void EmptyList()
+        {
+
+            fouteKarakters.Text = string.Empty;
+            juisteKarakters.Text = string.Empty;
+            JuistGeraden.Clear();
+            FoutGeraden.Clear();
+        }
+            
         #endregion
 
         #region Raad
@@ -161,7 +169,8 @@ namespace hangman_project
                     }
                 }
                 
-            }
+            }       
+            
             #endregion
         }
 
@@ -177,11 +186,9 @@ namespace hangman_project
             raad.Visibility = Visibility.Visible;
             verberg.Visibility = Visibility.Visible;
 
-            juisteKarakters.Text = "";
-          
-            fouteKarakters.Text = "";
-
+            EmptyList();
             aantalLevens.Text = $"10";
+            levens = 10;
         }
 
 
@@ -195,7 +202,9 @@ namespace hangman_project
             woord = input.Text;
 
             input.Text = "";
-            resultaat.Text = $"Je begint met 10 levens."; 
+            resultaat.Text = $"Je begint met 10 levens.";
+            EmptyList();
+            
         }
 
         #endregion
